@@ -1,0 +1,39 @@
+@font-face {
+	font-family: "WolfsRain.ttf";
+	src: url(../fonts/WolfsRain.ttf) format("truetype");
+}
+
+body {
+	background: url(../images/wallhaven-321701.jpg) no-repeat center center fixed;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+body {
+	margin: 0 auto;
+	max-width: 850px;
+	/*text-align: center;*/
+}
+
+img {
+	height: 250px;
+	width: 500px;
+}
+
+h1 {
+	font-family: "WolfsRain";
+	font-size: 100px;
+	color: white;
+	float: left;
+}
+
+#search-container {
+	position: relative;
+}
+
+form {
+	position: absolute;
+	transform: translateY(150%);
+}
