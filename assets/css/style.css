@@ -14,7 +14,6 @@ body {
 body {
 	margin: 0 auto;
 	max-width: 850px;
-	/*text-align: center;*/
 }
 
 img {
@@ -29,11 +28,29 @@ h1 {
 	float: left;
 }
 
+p {
+	font-family: "WolfsRain";
+	color: white;
+	font-size: 2em;
+	padding-bottom: 25px;
+}
+
 #search-container {
 	position: relative;
 }
 
 form {
 	position: absolute;
-	transform: translateY(150%);
+	transform: translateY(175%);
+}
+
+#buttons-container {
+	text-align: center;
+	margin: 20px 0px;
+}
+
+button {
+	font-family: "WolfsRain";
+	font-size: 25px;
+	margin: 10px;
 }

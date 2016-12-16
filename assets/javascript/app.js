@@ -1,16 +1,41 @@
+var initialButtonsArray = [
+  "Evangelion",
+  "Naruto",
+  "Tokyo Ghoul",
+  "Berserk",
+  "Hellsing OVA",
+  "FLCL",
+  "Ergo Proxy"
+];
+
+function addButton(title) {
+  var button = $("<button id='anime-button' data-title='" + title + "'>" +
+                title + "</button>");
+  $("#buttons-container").append(button);
+}
+
+for (var j = 0; j < initialButtonsArray.length; j++) {
+  addButton(initialButtonsArray[j]);
+}
+
+$("button").on("click", function() {
+  var animeDataName = $(this).data("title");
+  getAnimeGifs(animeDataName);
+});
+
 $("#add-gif-button").on("click", function(event) {
   // Preventing the button from trying to submit the form
   event.preventDefault();
   // Storing the anime title
   var anime_Name = $("#search-box").val().trim();
-  console.log(anime_Name);
+  addButton(anime_Name);
   getAnimeGifs(anime_Name);
 });
 
 function getAnimeGifs(animeTitle) {
   // Set var to giphy URL with anime title to search for
   var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animeTitle + 
-                "&rating=pg-13&api_key=dc6zaTOxFJmzC&limit=20";
+                "&rating=pg-13&api_key=dc6zaTOxFJmzC&limit=10";
 
   $.ajax({
     url: queryURL,
@@ -18,9 +43,6 @@ function getAnimeGifs(animeTitle) {
   }).done(function(response) {
     //create 
     var results = response.data;
-
-    // Printing the entire object to console
-    console.log(results);
 
     //variable to hold each search result set of gifs
     var completedGifSet = $("<div id='gif-set'>");
@@ -50,33 +72,3 @@ function getAnimeGifs(animeTitle) {
     }
   });
 }
-// $("#add-gif-button").on("click", function() {
-//   //get value is search
-
-
-//   // Storing our giphy API URL for a random cat image
-//   var queryURL = "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=cats";
-
-//   // Perfoming an AJAX GET request to our queryURL
-//   $.ajax({
-//     url: queryURL,
-//     method: "GET"
-//   })
-
-//   // After the data from the AJAX request comes back
-//   .done(function(response) {
-  
-//   // Saving the image_original_url property
-//   var imageUrl = response.data.image_original_url;
-
-//   // Creating and storing an image tag
-//   var catImage = $("<img>");
-
-//   // Setting the catImage src attribute to imageUrl
-//   catImage.attr("src", imageUrl);
-//   catImage.attr("alt", "cat image");
-
-//   // Prepending the catImage to the images div
-//   $("#images").prepend(catImage);
-//   });
-// });
