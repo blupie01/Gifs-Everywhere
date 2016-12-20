@@ -30,7 +30,7 @@ function displayGifs() {
   //set var to anime title
   var anime = $(this).data("anime");
   //set var for giphy url
-  var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + anime + "&rating=pg-13&api_key=dc6zaTOxFJmzC&limit=20";
+  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + anime + "&rating=pg-13&api_key=dc6zaTOxFJmzC&limit=20";
 
   //use ajax to get data
   $.ajax({
